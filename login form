@@ -1,0 +1,76 @@
+LoginForm.java
+
+
+/**
+
+* Servlet implementation class LoginForm
+
+*/
+
+public class LoginForm extends HttpServlet {
+
+private static final long serialVersionUID = 1L;
+
+protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+response.setContentType("text/html");
+
+PrintWriter out = response.getWriter();
+
+String username = request.getParameter("username");
+
+String password = request.getParameter("password");
+
+if (username.equals("hello") && password.equals("hello")) {
+
+out.println("Login Success");
+
+}
+
+else{
+
+out.println("Login Unsuccess");
+
+}
+
+}
+
+}
+
+
+
+
+
+
+
+LoginForm.html
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Insert title here</title>
+
+</head>
+
+<body>
+
+<h2>Login</h2>
+
+<form action="LoginForm" method="get">
+
+<input type="text" name="username" placeholder="Username" required><br>
+
+<input type="password" name="password" placeholder="Password" required><br>
+
+<input type="submit" value="Login">
+
+</form>
+
+</body>
+
+</html>
