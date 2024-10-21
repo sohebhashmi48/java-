@@ -1,1 +1,94 @@
+CalculatorServlet.java
 
+
+public class CalculatorServlet extends HttpServlet {
+
+private static final long serialVersionUID = 1L;
+
+protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+response.setContentType("text/html");
+
+PrintWriter out = response.getWriter();
+
+int No1 = Integer.parseInt(request.getParameter("No1"));
+
+int No2 = Integer.parseInt(request.getParameter("No2"));
+
+String Opr = request.getParameter("opr");
+
+int Result = 0;
+
+if(Opr.equals("+"))
+
+Result = No1 + No2;
+
+if(Opr.equals("*"))
+
+Result = No1 * No2;
+
+if(Opr.equals("-"))
+
+Result = No1 - No2;
+
+if(Opr.equals("/"))
+
+Result = No1 / No2;
+
+out.println(Result);
+
+}
+
+}
+
+
+
+
+
+CalculatorServlet.html
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Calculator App</title>
+
+</head>
+
+<body>
+
+<form action="CalculatorServlet" method="get">
+
+Enter First Number: <input type="text" name="No1"><br>
+
+Enter Second Number: <input type="text" name="No2"><br>
+
+Select an Operation<br>
+
+<input type="radio" name="opr" value="+" id="add">
+
+<label for="add">ADDITION</label><br>
+
+<input type="radio" name="opr" value="-" id="sub">
+
+<label for="sub">SUBTRACTION</label><br>
+
+<input type="radio" name="opr" value="*" id="mul">
+
+<label for="mul">MULTIPLY</label><br>
+
+<input type="radio" name="opr" value="/" id="div">
+
+<label for="div">DIVIDE</label><br>
+
+<input type="submit" value="Calculate">
+
+</form>
+
+</body>
+
+</html>
